@@ -32,10 +32,15 @@ Use Conventional Commits.
 ## Best Practices
 
 - Follow consistent code formatting.
-
 - Write clear commit messages using Conventional Commits.
-
 - Test changes before committing.
-
 - Keep documentation up to date.
+
+## Project Rules
+
+1. Always follow the existing file structure and modify only the specified files.
+
+2. All forms must include semantic HTML, accessible labels, client-side validation, and inline error messages.
+
+3. Before finishing any task, verify that every requirement has been implemented and identify possible edge cases or improvements.
 
