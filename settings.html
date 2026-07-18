@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage your profile, AI preferences, appearance, and privacy settings."
+    />
+    <title>Settings | AI Engineering Capstone</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">AI Capstone</a>
+        <nav class="header-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="settings.html" aria-current="page">Settings</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="container">
+      <div class="page-header">
+        <h1>Settings</h1>
+        <p class="page-subtitle">
+          Customize your profile, AI behavior, and app preferences.
+        </p>
+      </div>
+
+      <div
+        id="status-message"
+        class="status-message"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+
+      <form id="settings-form" class="settings-form" novalidate>
+        <!-- Profile -->
+        <section class="settings-section" aria-labelledby="profile-heading">
+          <div class="section-header">
+            <h2 id="profile-heading">Profile</h2>
+            <p>Basic information used across the app.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="display-name">Display name</label>
+              <input
+                type="text"
+                id="display-name"
+                name="displayName"
+                autocomplete="name"
+                placeholder="Your name"
+                maxlength="60"
+                required
+              />
+              <span class="field-hint">Shown in chat and on your dashboard.</span>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+              <span class="field-hint">Used for account recovery and notifications.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Preferences -->
+        <section class="settings-section" aria-labelledby="ai-heading">
+          <div class="section-header">
+            <h2 id="ai-heading">AI Preferences</h2>
+            <p>Control how the assistant responds to you.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="ai-model">Preferred model</label>
+              <select id="ai-model" name="aiModel">
+                <option value="balanced">Balanced (recommended)</option>
+                <option value="fast">Fast responses</option>
+                <option value="creative">Creative</option>
+                <option value="precise">Precise &amp; factual</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="response-length">Response length</label>
+              <select id="response-length" name="responseLength">
+                <option value="concise">Concise</option>
+                <option value="balanced">Balanced</option>
+                <option value="detailed">Detailed</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="temperature">
+                Creativity
+                <span id="temperature-value" class="range-value">0.7</span>
+              </label>
+              <input
+                type="range"
+                id="temperature"
+                name="temperature"
+                min="0"
+                max="1"
+                step="0.1"
+                value="0.7"
+              />
+              <span class="field-hint">
+                Lower values produce focused answers; higher values allow more variation.
+              </span>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="system-prompt">Custom instructions</label>
+              <textarea
+                id="system-prompt"
+                name="systemPrompt"
+                rows="4"
+                maxlength="500"
+                placeholder="Optional instructions for the assistant (e.g., tone, expertise level)..."
+              ></textarea>
+              <span class="field-hint">
+                <span id="prompt-count">0</span>/500 characters
+              </span>
+            </div>
+          </div>
+
+          <fieldset class="toggle-group">
+            <legend class="visually-hidden">AI behavior toggles</legend>
+
+            <label class="toggle-row">
+              <span class="toggle-label">
+                <span class="toggle-title">Stream responses</span>
+                <span class="toggle-description">Show AI replies as they are generated.</span>
+              </span>
+              <input type="checkbox" id="stream-responses" name="streamResponses" checked />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+
+            <label class="toggle-row">
+              <span class="toggle-label">
+                <span class="toggle-title">Save chat history</span>
+                <span class="toggle-description">Keep conversations on this device.</span>
+              </span>
+              <input type="checkbox" id="save-history" name="saveHistory" checked />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+          </fieldset>
+        </section>
+
+        <!-- Appearance -->
+        <section class="settings-section" aria-labelledby="appearance-heading">
+          <div class="section-header">
+            <h2 id="appearance-heading">Appearance</h2>
+            <p>Adjust how the interface looks and feels.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="theme">Theme</label>
+              <select id="theme" name="theme">
+                <option value="system">System default</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="font-size">Text size</label>
+              <select id="font-size" name="fontSize">
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="toggle-group">
+            <legend class="visually-hidden">Appearance toggles</legend>
+
+            <label class="toggle-row">
+              <span class="toggle-label">
+                <span class="toggle-title">Reduce motion</span>
+                <span class="toggle-description">Minimize animations and transitions.</span>
+              </span>
+              <input type="checkbox" id="reduce-motion" name="reduceMotion" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+          </fieldset>
+        </section>
+
+        <!-- Notifications -->
+        <section class="settings-section" aria-labelledby="notifications-heading">
+          <div class="section-header">
+            <h2 id="notifications-heading">Notifications</h2>
+            <p>Choose when and how you want to be notified.</p>
+          </div>
+
+          <fieldset class="toggle-group">
+            <legend class="visually-hidden">Notification toggles</legend>
+
+            <label class="toggle-row">
+              <span class="toggle-label">
+                <span class="toggle-title">Email updates</span>
+                <span class="toggle-description">Product news and feature announcements.</span>
+              </span>
+              <input type="checkbox" id="email-updates" name="emailUpdates" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+
+            <label class="toggle-row">
+              <span class="toggle-label">
+                <span class="toggle-title">Response ready sound</span>
+                <span class="toggle-description">Play a sound when the AI finishes replying.</span>
+              </span>
+              <input type="checkbox" id="response-sound" name="responseSound" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+          </fieldset>
+        </section>
+
+        <!-- Privacy -->
+        <section class="settings-section" aria-labelledby="privacy-heading">
+          <div class="section-header">
+            <h2 id="privacy-heading">Privacy &amp; Data</h2>
+            <p>Manage stored data on this device.</p>
+          </div>
+
+          <fieldset class="toggle-group">
+            <legend class="visually-hidden">Privacy toggles</legend>
+
+            <label class="toggle-row">
+              <span class="toggle-label">
+                <span class="toggle-title">Share anonymous usage data</span>
+                <span class="toggle-description">Help improve the app with anonymous analytics.</span>
+              </span>
+              <input type="checkbox" id="analytics" name="analytics" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+          </fieldset>
+
+          <div class="danger-zone">
+            <div>
+              <h3>Clear local data</h3>
+              <p>Remove saved settings and chat history from this browser.</p>
+            </div>
+            <button type="button" id="clear-data-btn" class="btn btn-danger">
+              Clear data
+            </button>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="button" id="reset-btn" class="btn btn-secondary">
+            Reset to defaults
+          </button>
+          <button type="submit" class="btn btn-primary">Save settings</button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 AI Engineering Capstone</p>
+      </div>
+    </footer>
+
+    <script src="settings.js"></script>
+  </body>
+</html>
