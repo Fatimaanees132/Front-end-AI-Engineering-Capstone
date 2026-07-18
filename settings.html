@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <main class="settings-page">
+    <section class="settings-card" aria-labelledby="settings-heading">
+      <header class="settings-header">
+        <h1 id="settings-heading">Settings</h1>
+        <p class="settings-subtitle">Manage your account preferences</p>
+      </header>
+
+      <!-- Shown after successful submission -->
+      <div
+        id="success-message"
+        class="form-message form-message--success"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+
+      <form id="settings-form" class="settings-form" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="full-name">Full Name <span class="required-indicator" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="full-name"
+            name="fullName"
+            autocomplete="name"
+            required
+            aria-required="true"
+            aria-describedby="full-name-error"
+          >
+          <span id="full-name-error" class="field-error" role="alert"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="email-error"
+          >
+          <span id="email-error" class="field-error" role="alert"></span>
+        </div>
+
+        <!-- Theme -->
+        <div class="form-group">
+          <label for="theme">Theme</label>
+          <select id="theme" name="theme" aria-describedby="theme-error">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          <span id="theme-error" class="field-error" role="alert"></span>
+        </div>
+
+        <!-- Notifications -->
+        <div class="form-group form-group--checkbox">
+          <input
+            type="checkbox"
+            id="notifications"
+            name="notifications"
+          >
+          <label for="notifications">Enable Notifications</label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary">Save Settings</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="settings.js"></script>
+</body>
+</html>
