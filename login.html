@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to the Front-end AI Engineering Capstone platform.">
+  <title>Sign In | AI Engineering Capstone</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-shell">
+    <aside class="login-brand" aria-hidden="true">
+      <div class="login-brand__content">
+        <div class="login-brand__logo">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="currentColor" opacity="0.15"/>
+            <path d="M24 12L32 20H28V32H20V20H16L24 12Z" fill="currentColor"/>
+            <circle cx="24" cy="36" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="login-brand__eyebrow">Front-end AI Engineering Capstone</p>
+        <h1 class="login-brand__title">Build smarter experiences with AI</h1>
+        <p class="login-brand__text">
+          Access your workspace to explore AI-powered tools, manage settings, and ship polished web interfaces.
+        </p>
+        <ul class="login-brand__features">
+          <li>Secure client-side validation</li>
+          <li>Accessible, responsive design</li>
+          <li>Ready for API integration</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="login-page">
+      <div class="login-mobile-brand" aria-hidden="true">
+        <div class="login-mobile-brand__logo">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="currentColor" opacity="0.15"/>
+            <path d="M24 12L32 20H28V32H20V20H16L24 12Z" fill="currentColor"/>
+            <circle cx="24" cy="36" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="login-mobile-brand__title">AI Engineering Capstone</p>
+      </div>
+
+      <section class="login-card" aria-labelledby="login-heading">
+        <header class="login-header">
+          <h1 id="login-heading">Sign In</h1>
+          <p class="login-subtitle">Enter your credentials to access your capstone workspace</p>
+        </header>
+
+        <div
+          id="form-message"
+          class="form-message"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></div>
+
+        <form id="login-form" class="login-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email <span class="required-indicator" aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+              aria-required="true"
+              aria-describedby="email-error"
+            >
+            <span id="email-error" class="field-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password <span class="required-indicator" aria-hidden="true">*</span></label>
+            <div class="password-field">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+                aria-required="true"
+                aria-describedby="password-error password-toggle"
+              >
+              <button
+                type="button"
+                id="password-toggle"
+                class="password-toggle"
+                aria-label="Show password"
+                aria-pressed="false"
+                aria-controls="password"
+              >
+                <span class="password-toggle__show" aria-hidden="true">Show</span>
+                <span class="password-toggle__hide" aria-hidden="true">Hide</span>
+              </button>
+            </div>
+            <span id="password-error" class="field-error" role="alert"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group form-group--checkbox">
+              <input
+                type="checkbox"
+                id="remember-me"
+                name="rememberMe"
+              >
+              <label for="remember-me">Remember me</label>
+            </div>
+            <a href="#" class="login-link login-link--inline">Forgot password?</a>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">
+              <span class="btn__label">Sign In</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+
+        <footer class="login-footer">
+          <p>
+            New to the capstone?
+            <a href="settings.html" class="login-link">Create an account</a>
+          </p>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
